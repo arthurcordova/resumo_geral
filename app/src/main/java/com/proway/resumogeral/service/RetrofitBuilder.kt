@@ -22,8 +22,16 @@ object RetrofitBuilder {
      * Retorna a implementação da interface
      * Retrofit le a interface e devolve uma instacia implementada.
      */
-    fun getAuthenticationServices(): Authentication {
-        return retrofitFake.create(Authentication::class.java)
+    fun getAuthenticationServices(): AuthenticationService {
+        return retrofitFake.create(AuthenticationService::class.java)
+    }
+
+    /**
+     * Retorna a implementação da interface
+     * Retrofit le a interface e devolve uma instacia implementada.
+     */
+    fun getProductServices(): ProductService {
+        return retrofitFake.create(ProductService::class.java)
     }
 
 }

@@ -24,7 +24,7 @@ fun AppCompatActivity.snackBar(view: View, @StringRes resId: Int) {
     hideKeyboard()
 
     // Chama a funcao de para customizar a snackbar
-    setupSnackBar(view, resId, R.color.red).apply {
+    setupSnackBar(view, resId).apply {
         // mostra a snackbar na tela
         this.show()
     }
@@ -48,13 +48,11 @@ fun AppCompatActivity.hideKeyboard() {
  */
 private fun AppCompatActivity.setupSnackBar(
     v: View,
-    @StringRes resId: Int,
-    @ColorRes color: Int
+    @StringRes resId: Int
 ): Snackbar {
     // Criamos a instancia da snackBar e fazemos algumas modificaçoes.
     // Mudamos a orientacao do texto e a cor de background.
     return Snackbar.make(v, resId, Snackbar.LENGTH_LONG).apply {
-        view.setBackgroundColor(getColor(color))
         view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text).apply {
             gravity = Gravity.CENTER
             textAlignment = View.TEXT_ALIGNMENT_CENTER

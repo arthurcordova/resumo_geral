@@ -102,10 +102,8 @@ class LoginActivity : AppCompatActivity(), Callback<LoginResponse> {
      */
     override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
         if (response.body() != null) {
-            println("ERRO 1")
             val loginResponse = response.body()!!
             if (loginResponse.isError()) {
-                println("ERRO 2")
                 snackBar(inputEmail, R.string.usuario_invalido)
             } else {
                 Intent(this, MainActivity::class.java).apply {
@@ -113,7 +111,6 @@ class LoginActivity : AppCompatActivity(), Callback<LoginResponse> {
                 }
             }
         } else {
-            println("ERRO 3")
             snackBar(inputEmail, R.string.usuario_invalido)
         }
     }
@@ -122,7 +119,7 @@ class LoginActivity : AppCompatActivity(), Callback<LoginResponse> {
      * Retrofit chama automaticamente esta função quando um erro de conexão ou conversão json.
      */
     override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-        snackBar(inputEmail, R.string.usuario_invalido)
+          snackBar(inputEmail, R.string.usuario_invalido)
     }
 
 
