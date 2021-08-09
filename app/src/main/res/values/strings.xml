@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Resumo geral</string>
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="usuario_invalido">Usuario ou senha invalido</string>
+</resources>
