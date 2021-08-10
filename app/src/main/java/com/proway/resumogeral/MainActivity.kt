@@ -1,5 +1,6 @@
 package com.proway.resumogeral
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
@@ -14,7 +15,12 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity(), Callback<List<Product>> {
 
     private lateinit var recyclerView: RecyclerView
-    private val adapter = ProductAdapter()
+    private val adapter = ProductAdapter() { product ->
+        Intent(this, ProductDetailActivity::class.java).apply {
+            putExtra(ProductDetailActivity.PARAMETER_PRODUCT, product.id)
+            startActivity(this)
+        }
+    }
     private val productsCall by lazy {
         RetrofitBuilder.getProductServices().getProducts()
     }
